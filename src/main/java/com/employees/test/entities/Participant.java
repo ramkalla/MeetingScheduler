@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.Email;
 
 @Entity
 public class Participant implements Serializable {
@@ -27,6 +28,8 @@ public class Participant implements Serializable {
 	@Column(name="name")
 	private String name;
 	
+	
+	@Email
 	@Column(name="email",unique = true)
 	private String email;
 	
