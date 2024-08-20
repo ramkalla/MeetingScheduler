@@ -26,4 +26,3 @@ public class SpringBootAPIsApplication {
 		log.info("Started..........");
 	}
 }
-// com.employees.test.controller

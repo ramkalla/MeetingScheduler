@@ -15,4 +15,10 @@ import com.employees.test.entities.Participant;
 @Repository("participantsRepository")
 public interface ParticipantsRepository extends JpaRepository<Participant, Long> {
 
+	
+	
+	@Query(" FROM Participant a WHERE a.email = :email")
+	List<Participant> findParticipantwithEmail(@Param("email") String email);
+
+	
 }

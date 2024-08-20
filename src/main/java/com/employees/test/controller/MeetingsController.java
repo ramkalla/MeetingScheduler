@@ -50,7 +50,10 @@ public class MeetingsController {
   }
   
   @PostMapping("/participants")
-  public Participant saveParticipants(@RequestBody Participant participant) {
-    return participantsService.saveParticipant(participant);
+  public ResponseEntity<ResponsedataModel> saveParticipants(@RequestBody Participant participant) {
+	  if(!participantsService.findParticipantwithEmail(participant.getEmail()).isEmpty()) {
+	    	return new ResponseUtility().dataNotFound("Participant is already registered with the given email address");
+	    }
+	  	  return new ResponseUtility().buildSuccessResponse(participantsService.saveParticipant(participant));
   }
 }
